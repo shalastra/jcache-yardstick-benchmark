@@ -15,7 +15,7 @@ public class HazelcastGetBenchmark extends AbstractHazelcastBenchmark {
 
   @Override
   public boolean test(Map<Object, Object> map) throws Exception {
-    int key = nextRandom(args.range());
+    long key = nextRandom(args.range());
 
     cache.get(key);
 
