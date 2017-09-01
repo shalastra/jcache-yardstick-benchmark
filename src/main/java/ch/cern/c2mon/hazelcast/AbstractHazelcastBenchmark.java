@@ -1,5 +1,6 @@
 package ch.cern.c2mon.hazelcast;
 
+import ch.cern.c2mon.hazelcast.arguments.HazelcastArguments;
 import org.yardstickframework.BenchmarkConfiguration;
 import org.yardstickframework.BenchmarkDriverAdapter;
 
@@ -12,6 +13,8 @@ public abstract class AbstractHazelcastBenchmark extends BenchmarkDriverAdapter 
     private String cacheName;
 
     protected Cache<Long, String> cache;
+
+    protected HazelcastArguments args;
 
     public AbstractHazelcastBenchmark(String cacheName) {
         this.cacheName = cacheName;
