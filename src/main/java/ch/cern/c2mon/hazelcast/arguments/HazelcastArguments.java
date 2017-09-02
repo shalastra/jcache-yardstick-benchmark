@@ -15,10 +15,10 @@ public class HazelcastArguments {
   private int backups;
 
   @Parameter(names = {"-hzcfg", "--hzConfig"}, description = "Configuration file")
-  private String hzCfg = "config/hazelcast-config.xml";
+  private String hzCfg = "config/hazelcast/hazelcast.xml";
 
   @Parameter(names = {"-hzclicfg", "--hzClientConfig"}, description = "Client configuration file")
-  private String hzClientCfg = "config/hazelcast-client-config.xml";
+  private String hzClientCfg = "config/hazelcast/hazelcast-client.xml";
 
   /** */
   @Parameter(names = {"-sb", "--syncBackups"}, description = "Synchronous backups")

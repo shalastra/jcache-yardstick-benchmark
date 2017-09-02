@@ -17,7 +17,7 @@
 
   <cache name="tagCache">
     <key-type class-name="java.lang.Long"/>
-    <key-type class-name="java.lang.String"/>
+    <value-type class-name="ch.cern.c2mon.Tag"/>
     <statistics-enabled>false</statistics-enabled>
     <management-enabled>false</management-enabled>
   </cache>

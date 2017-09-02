@@ -2,14 +2,17 @@ package ch.cern.c2mon.hazelcast.benchmarks;
 
 import java.util.Map;
 
+import ch.cern.c2mon.Tag;
 import ch.cern.c2mon.hazelcast.AbstractHazelcastBenchmark;
+
+import static ch.cern.c2mon.Utils.nextRandom;
 
 /**
  * @author Szymon Halastra
  */
-public class HazelcastSetBenchmark extends AbstractHazelcastBenchmark {
+public class HazelcastPutBenchmark extends AbstractHazelcastBenchmark {
 
-  public HazelcastSetBenchmark(String cacheName) {
+  public HazelcastPutBenchmark(String cacheName) {
     super("tagCache");
   }
 
@@ -17,7 +20,7 @@ public class HazelcastSetBenchmark extends AbstractHazelcastBenchmark {
   public boolean test(Map<Object, Object> map) throws Exception {
     long key = nextRandom(args.range());
 
-    cache.get(key);
+    cache.put(key, new Tag(1L, "tag_1", "tag description"));
 
     return true;
   }
