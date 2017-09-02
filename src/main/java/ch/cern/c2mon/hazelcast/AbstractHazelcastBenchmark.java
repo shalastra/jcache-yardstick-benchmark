@@ -1,8 +1,7 @@
 package ch.cern.c2mon.hazelcast;
 
 import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.CountDownLatch;
 
 import javax.cache.Cache;
 
@@ -11,13 +10,16 @@ import ch.cern.c2mon.Tag;
 import ch.cern.c2mon.hazelcast.arguments.HazelcastArguments;
 import ch.cern.c2mon.hazelcast.server.HazelcastNode;
 import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.core.Hazelcast;
-import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.*;
+import lombok.extern.slf4j.Slf4j;
 import org.yardstickframework.BenchmarkConfiguration;
 import org.yardstickframework.BenchmarkDriverAdapter;
+import org.yardstickframework.BenchmarkUtils;
 
 import static org.yardstickframework.BenchmarkUtils.jcommander;
+import static org.yardstickframework.BenchmarkUtils.println;
 
+@Slf4j
 public abstract class AbstractHazelcastBenchmark extends BenchmarkDriverAdapter {
 
   private String cacheName;
@@ -40,17 +42,96 @@ public abstract class AbstractHazelcastBenchmark extends BenchmarkDriverAdapter 
 
     HazelcastInstance instance = startedInstance(args.nodeType());
 
+    if (instance == null) {
+      node = new HazelcastNode(args.nodeType());
+
+      node.start(cfg);
+    }
+    else {
+      node = new HazelcastNode(args.nodeType(), instance);
+    }
+
+    waitForNodes();
+
     cache = node.hazelcast().getCacheManager().getCache(cacheName);
+
+    assert cache != null;
   }
 
-  private HazelcastInstance startedInstance(NodeType nodeType) {
+
+  /** {@inheritDoc} */
+  @Override public void tearDown() throws Exception {
+    cache.clear();
+
+    if (node != null)
+      node.stop();
+  }
+
+  /** {@inheritDoc} */
+  @Override public String description() {
+    String desc = BenchmarkUtils.description(cfg, this);
+
+    return desc.isEmpty() ?
+            getClass().getSimpleName() + args.description() + cfg.defaultDescription() : desc;
+  }
+
+  /** {@inheritDoc} */
+  @Override public String usage() {
+    return BenchmarkUtils.usage(args);
+  }
+
+  private void waitForNodes() throws Exception {
+    final CountDownLatch nodesStartedLatch = new CountDownLatch(1);
+
+    hazelcast().getCluster().addMembershipListener(new MembershipListener() {
+      @Override
+      public void memberAdded(MembershipEvent membershipEvent) {
+        if (nodesStarted()) {
+          nodesStartedLatch.countDown();
+        }
+      }
+
+      @Override
+      public void memberRemoved(MembershipEvent membershipEvent) {
+
+      }
+
+      @Override
+      public void memberAttributeChanged(MemberAttributeEvent memberAttributeEvent) {
+
+      }
+    });
+
+    if (!nodesStarted()) {
+      println(cfg, "Waiting for " + args.nodes() + " nodes to start...");
+
+
+      nodesStartedLatch.await();
+    }
+  }
+
+  private HazelcastInstance hazelcast() {
+    return node.hazelcast();
+  }
+
+  private static HazelcastInstance startedInstance(NodeType nodeType) {
     Collection<HazelcastInstance> collection = nodeType == NodeType.CLIENT ? HazelcastClient.getAllHazelcastClients() : Hazelcast.getAllHazelcastInstances();
 
     return collection == null || collection.isEmpty() ? null : collection.iterator().next();
   }
 
-  @Override
-  public boolean test(Map<Object, Object> map) throws Exception {
-    return false;
+  private boolean nodesStarted() {
+    return numFullNodes() >= args.nodes();
+  }
+
+  private int numFullNodes() {
+    int n = 0;
+
+    for (Member node : hazelcast().getCluster().getMembers()) {
+      if (!node.isLiteMember())
+        n++;
+    }
+
+    return n;
   }
 }
