@@ -1,4 +1,4 @@
-package ch.cern.c2mon;
+package org.yardstickframework;
 
 import java.io.Serializable;
 

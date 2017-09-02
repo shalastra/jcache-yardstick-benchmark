@@ -1,4 +1,4 @@
-package ch.cern.c2mon.terracotta;
+package org.yardstickframework.terracotta;
 
 import java.util.Map;
 

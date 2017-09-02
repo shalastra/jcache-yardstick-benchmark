@@ -1,6 +1,6 @@
-package ch.cern.c2mon.hazelcast.arguments;
+package org.yardstickframework.hazelcast;
 
-import ch.cern.c2mon.NodeType;
+import org.yardstickframework.NodeType;
 import com.beust.jcommander.Parameter;
 
 /**

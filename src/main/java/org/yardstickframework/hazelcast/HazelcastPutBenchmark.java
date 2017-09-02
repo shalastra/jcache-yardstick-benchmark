@@ -1,12 +1,11 @@
-package ch.cern.c2mon.hazelcast.benchmarks;
+package org.yardstickframework.hazelcast;
 
 import java.util.Map;
 
-import ch.cern.c2mon.Tag;
-import ch.cern.c2mon.hazelcast.AbstractHazelcastBenchmark;
+import org.yardstickframework.Tag;
 import lombok.extern.slf4j.Slf4j;
 
-import static ch.cern.c2mon.Utils.nextRandom;
+import static org.yardstickframework.Utils.nextRandom;
 
 /**
  * @author Szymon Halastra

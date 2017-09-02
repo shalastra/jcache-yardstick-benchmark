@@ -1,4 +1,4 @@
-package ch.cern.c2mon.ignite.server;
+package org.yardstickframework.infinispan.server;
 
 import org.yardstickframework.BenchmarkConfiguration;
 import org.yardstickframework.BenchmarkServer;
@@ -6,7 +6,7 @@ import org.yardstickframework.BenchmarkServer;
 /**
  * @author Szymon Halastra
  */
-public class IgniteNode implements BenchmarkServer {
+public class InfinispanNode implements BenchmarkServer {
   @Override
   public void start(BenchmarkConfiguration cfg) throws Exception {
 

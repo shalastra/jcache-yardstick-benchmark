@@ -1,4 +1,4 @@
-package ch.cern.c2mon.terracotta.server;
+package org.yardstickframework.ignite.server;
 
 import org.yardstickframework.BenchmarkConfiguration;
 import org.yardstickframework.BenchmarkServer;
@@ -6,10 +6,10 @@ import org.yardstickframework.BenchmarkServer;
 /**
  * @author Szymon Halastra
  */
-public class TerracottaNode implements BenchmarkServer {
+public class IgniteNode implements BenchmarkServer {
   @Override
   public void start(BenchmarkConfiguration cfg) throws Exception {
-    
+
   }
 
   @Override

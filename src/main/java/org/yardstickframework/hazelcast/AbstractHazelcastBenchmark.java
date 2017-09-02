@@ -1,14 +1,12 @@
-package ch.cern.c2mon.hazelcast;
+package org.yardstickframework.hazelcast;
 
 import java.util.Collection;
 import java.util.concurrent.CountDownLatch;
 
 import javax.cache.Cache;
 
-import ch.cern.c2mon.NodeType;
-import ch.cern.c2mon.Tag;
-import ch.cern.c2mon.hazelcast.arguments.HazelcastArguments;
-import ch.cern.c2mon.hazelcast.server.HazelcastNode;
+import org.yardstickframework.NodeType;
+import org.yardstickframework.Tag;
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.*;
 import lombok.extern.slf4j.Slf4j;

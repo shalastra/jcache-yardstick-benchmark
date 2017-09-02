@@ -1,7 +1,6 @@
-package ch.cern.c2mon.hazelcast.server;
+package org.yardstickframework.hazelcast;
 
-import ch.cern.c2mon.NodeType;
-import ch.cern.c2mon.hazelcast.arguments.HazelcastArguments;
+import org.yardstickframework.NodeType;
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.client.config.XmlClientConfigBuilder;

@@ -1,4 +1,4 @@
-package ch.cern.c2mon;
+package org.yardstickframework;
 
 public enum NodeType {
     SERVER, CLIENT, LITE_MEMBER
