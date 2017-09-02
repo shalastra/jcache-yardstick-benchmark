@@ -10,7 +10,6 @@ public class HazelcastArguments {
   @Parameter(names = {"-nn", "--nodeNumber"}, description = "Node number")
   private int nodes = 1;
 
-  /** */
   @Parameter(names = {"-b", "--backups"}, description = "Backups")
   private int backups;
 
@@ -20,39 +19,30 @@ public class HazelcastArguments {
   @Parameter(names = {"-hzclicfg", "--hzClientConfig"}, description = "Client configuration file")
   private String hzClientCfg = "config/hazelcast/hazelcast-client.xml";
 
-  /** */
   @Parameter(names = {"-sb", "--syncBackups"}, description = "Synchronous backups")
   private boolean syncBackups;
 
-  /** */
   @Parameter(names = {"-nt", "--nodeType"}, description = "Node type")
   private NodeType nodeType = NodeType.SERVER;
 
-  /** */
   @Parameter(names = {"-r", "--range"}, description = "Key range")
   private int range = 1_000_000;
 
-  /** */
   @Parameter(names = {"-rb", "--readBackups"}, description = "Read backups")
   private boolean readBackups = false;
 
-  /** */
   @Parameter(names = {"-bs", "--batchSize"}, description = "Batch size")
   private int batch = 500;
 
-  /** */
   @Parameter(names = {"-rd", "--restartdelay"}, description = "Restart delay in seconds")
   private int restartDelay = 20;
 
-  /** */
   @Parameter(names = {"-rs", "--restartsleep"}, description = "Restart sleep in seconds")
   private int restartSleep = 2;
 
-  /** */
   @Parameter(names = {"-kc", "--keysCount"}, description = "Count of keys")
   private int keysCnt = 5;
 
-  /** */
   @Parameter(names = {"-td", "--txDurability"}, description = "Transaction durability")
   private int txDurability = 1;
 
