@@ -7,9 +7,9 @@ import ch.cern.c2mon.hazelcast.AbstractHazelcastBenchmark;
 /**
  * @author Szymon Halastra
  */
-public class HazelcastGetBenchmark extends AbstractHazelcastBenchmark {
+public class HazelcastSetBenchmark extends AbstractHazelcastBenchmark {
 
-  public HazelcastGetBenchmark(String cacheName) {
+  public HazelcastSetBenchmark(String cacheName) {
     super("tagCache");
   }
 
