@@ -2,8 +2,8 @@ package org.yardstickframework.hazelcast;
 
 import java.util.Map;
 
-import org.yardstickframework.Tag;
 import lombok.extern.slf4j.Slf4j;
+import org.yardstickframework.Tag;
 
 import static org.yardstickframework.Utils.nextRandom;
 
