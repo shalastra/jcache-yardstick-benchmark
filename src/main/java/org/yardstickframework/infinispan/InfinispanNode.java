@@ -1,4 +1,4 @@
-package org.yardstickframework.infinispan.server;
+package org.yardstickframework.infinispan;
 
 import org.yardstickframework.BenchmarkConfiguration;
 import org.yardstickframework.BenchmarkServer;

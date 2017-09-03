@@ -1,0 +1,6 @@
+<infinispan>
+  <cache-container default-cache="tagCache">
+    <transport cluster="jcache-cluster" />
+    <replicated-cache name="tagCache" />
+  </cache-container>
+</infinispan>
