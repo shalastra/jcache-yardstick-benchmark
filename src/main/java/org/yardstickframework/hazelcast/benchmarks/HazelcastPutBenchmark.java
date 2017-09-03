@@ -1,9 +1,10 @@
-package org.yardstickframework.hazelcast;
+package org.yardstickframework.hazelcast.benchmarks;
 
 import java.util.Map;
 
 import lombok.extern.slf4j.Slf4j;
 import org.yardstickframework.common.Tag;
+import org.yardstickframework.hazelcast.AbstractHazelcastBenchmark;
 
 import static org.yardstickframework.common.Utils.nextRandom;
 
