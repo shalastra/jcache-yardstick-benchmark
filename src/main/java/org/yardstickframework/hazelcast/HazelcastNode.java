@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.yardstickframework.BenchmarkConfiguration;
 import org.yardstickframework.BenchmarkServer;
 import org.yardstickframework.BenchmarkUtils;
+import org.yardstickframework.common.NodeType;
 
 import static org.yardstickframework.BenchmarkUtils.jcommander;
 import static org.yardstickframework.BenchmarkUtils.println;

@@ -17,7 +17,7 @@
 
   <cache name="tagCache">
     <key-type class-name="java.lang.Long"/>
-    <value-type class-name="org.yardstickframework.hazelcast.Tag"/>
+    <value-type class-name="org.yardstickframework.common.Tag"/>
     <statistics-enabled>false</statistics-enabled>
     <management-enabled>false</management-enabled>
   </cache>

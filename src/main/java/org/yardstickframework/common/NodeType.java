@@ -1,4 +1,4 @@
-package org.yardstickframework.hazelcast;
+package org.yardstickframework.common;
 
 public enum NodeType {
     SERVER, CLIENT, LITE_MEMBER

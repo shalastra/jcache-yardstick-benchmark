@@ -1,6 +1,7 @@
 package org.yardstickframework.hazelcast;
 
 import com.beust.jcommander.Parameter;
+import org.yardstickframework.common.NodeType;
 
 /**
  * @author Szymon Halastra

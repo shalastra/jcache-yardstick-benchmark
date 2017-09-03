@@ -1,8 +1,7 @@
-package org.yardstickframework.hazelcast;
+package org.yardstickframework.ignite;
 
 import java.util.Map;
 
-import lombok.extern.slf4j.Slf4j;
 import org.yardstickframework.common.Tag;
 
 import static org.yardstickframework.common.Utils.nextRandom;
@@ -10,9 +9,9 @@ import static org.yardstickframework.common.Utils.nextRandom;
 /**
  * @author Szymon Halastra
  */
-public class HazelcastPutBenchmark extends AbstractHazelcastBenchmark {
+public class IgnitePutBenchmark extends AbstractIgniteBenchmark {
 
-  public HazelcastPutBenchmark() {
+  public IgnitePutBenchmark() {
     super("tagCache");
   }
 

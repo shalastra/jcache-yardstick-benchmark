@@ -1,4 +1,4 @@
-package org.yardstickframework.ignite.server;
+package org.yardstickframework.ignite;
 
 import org.yardstickframework.BenchmarkConfiguration;
 import org.yardstickframework.BenchmarkServer;

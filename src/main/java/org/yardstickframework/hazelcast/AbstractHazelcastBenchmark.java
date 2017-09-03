@@ -9,6 +9,8 @@ import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.*;
 import lombok.extern.slf4j.Slf4j;
 import org.yardstickframework.*;
+import org.yardstickframework.common.NodeType;
+import org.yardstickframework.common.Tag;
 
 import static org.yardstickframework.BenchmarkUtils.jcommander;
 import static org.yardstickframework.BenchmarkUtils.println;
