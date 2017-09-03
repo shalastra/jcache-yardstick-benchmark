@@ -1,4 +1,4 @@
-package org.yardstickframework;
+package org.yardstickframework.hazelcast;
 
 import java.util.concurrent.ThreadLocalRandom;
 

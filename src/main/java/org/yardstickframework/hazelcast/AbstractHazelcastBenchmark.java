@@ -20,7 +20,7 @@ public abstract class AbstractHazelcastBenchmark extends BenchmarkDriverAdapter 
 
   protected Cache<Long, Tag> cache;
 
-  protected HazelcastArguments args;
+  protected HazelcastArguments args = new HazelcastArguments();
 
   private HazelcastNode node;
 
