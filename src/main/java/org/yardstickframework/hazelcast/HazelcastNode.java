@@ -24,7 +24,7 @@ public class HazelcastNode implements BenchmarkServer {
 
   private HazelcastInstance instance;
 
-  private NodeType nodeType;
+  private NodeType nodeType = NodeType.SERVER;
 
   public HazelcastNode() {
 
