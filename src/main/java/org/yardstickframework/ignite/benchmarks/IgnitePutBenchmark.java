@@ -1,8 +1,9 @@
-package org.yardstickframework.ignite;
+package org.yardstickframework.ignite.benchmarks;
 
 import java.util.Map;
 
 import org.yardstickframework.common.Tag;
+import org.yardstickframework.ignite.AbstractIgniteBenchmark;
 
 import static org.yardstickframework.common.Utils.nextRandom;
 
