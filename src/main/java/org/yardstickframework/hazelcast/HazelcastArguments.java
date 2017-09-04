@@ -43,9 +43,6 @@ public class HazelcastArguments {
   @Parameter(names = {"-kc", "--keysCount"}, description = "Count of keys")
   private int keysCnt = 5;
 
-  @Parameter(names = {"-td", "--txDurability"}, description = "Transaction durability")
-  private int txDurability = 1;
-
   /**
    * @return Sync backups.
    */
@@ -128,13 +125,6 @@ public class HazelcastArguments {
    */
   public int keysCount() {
     return keysCnt;
-  }
-
-  /**
-   * @return Transaction durability.
-   */
-  public int txDurability() {
-    return txDurability;
   }
 
   /**
