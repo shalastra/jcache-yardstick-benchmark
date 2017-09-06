@@ -18,6 +18,8 @@ public class AbstractInfinispanBenchmark extends BenchmarkDriverAdapter {
 
   protected InfinispanArguments args = new InfinispanArguments();
 
+  InfinispanNode node;
+
   public AbstractInfinispanBenchmark(String cacheName) {
     this.cacheName = cacheName;
   }
