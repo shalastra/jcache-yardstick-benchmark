@@ -56,11 +56,16 @@
       <artifactId>infinispan-core</artifactId>
       <version>9.1.0.Final</version>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>org.infinispan</groupId>-->
-      <!--<artifactId>infinispan-jcache</artifactId>-->
-      <!--<version>9.1.0.Final</version>-->
-    <!--</dependency>-->
+    <dependency>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-jcache</artifactId>
+      <version>9.1.0.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.redisson</groupId>
+      <artifactId>redisson</artifactId>
+      <version>3.5.3</version>
+    </dependency>
 
     <!--Command Line parser-->
     <dependency>

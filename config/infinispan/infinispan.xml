@@ -18,7 +18,7 @@
     Infinispan configuration file to startup grid cache.
 -->
 <infinispan
-    xmlns="urn:infinispan:config:7.2">
+    xmlns="urn:infinispan:config:9.1">
   <jgroups>
     <stack-file name="configurationFile" path="config/infinispan-jgroups.xml"/>
   </jgroups>

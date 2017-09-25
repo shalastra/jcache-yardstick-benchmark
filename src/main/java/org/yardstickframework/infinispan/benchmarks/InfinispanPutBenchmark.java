@@ -1,9 +1,10 @@
-package org.yardstickframework.infinispan;
+package org.yardstickframework.infinispan.benchmarks;
 
 import java.util.Map;
 
 import org.yardstickframework.common.Tag;
 import org.yardstickframework.hazelcast.AbstractHazelcastBenchmark;
+import org.yardstickframework.infinispan.AbstractInfinispanBenchmark;
 
 import static org.yardstickframework.common.Utils.nextRandom;
 
