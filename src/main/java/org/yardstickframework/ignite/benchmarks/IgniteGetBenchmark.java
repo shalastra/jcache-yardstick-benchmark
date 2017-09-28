@@ -2,10 +2,8 @@ package org.yardstickframework.ignite.benchmarks;
 
 import java.util.Map;
 
-import org.yardstickframework.hazelcast.AbstractHazelcastBenchmark;
+import org.yardstickframework.common.random.MaxRandom;
 import org.yardstickframework.ignite.AbstractIgniteBenchmark;
-
-import static org.yardstickframework.common.Utils.nextRandom;
 
 /**
  * @author Szymon Halastra
@@ -18,7 +16,7 @@ public class IgniteGetBenchmark extends AbstractIgniteBenchmark {
 
   @Override
   public boolean test(Map<Object, Object> ctx) throws Exception {
-    long key = nextRandom(args.range());
+    long key = new MaxRandom(args.range()).random();
 
     cache.get(key);
 

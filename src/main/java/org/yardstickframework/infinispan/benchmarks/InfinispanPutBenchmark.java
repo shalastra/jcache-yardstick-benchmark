@@ -3,10 +3,8 @@ package org.yardstickframework.infinispan.benchmarks;
 import java.util.Map;
 
 import org.yardstickframework.common.Tag;
-import org.yardstickframework.hazelcast.AbstractHazelcastBenchmark;
+import org.yardstickframework.common.random.MaxRandom;
 import org.yardstickframework.infinispan.AbstractInfinispanBenchmark;
-
-import static org.yardstickframework.common.Utils.nextRandom;
 
 /**
  * @author Szymon Halastra
@@ -19,7 +17,7 @@ public class InfinispanPutBenchmark extends AbstractInfinispanBenchmark {
 
   @Override
   public boolean test(Map<Object, Object> map) throws Exception {
-    long key = nextRandom(args.range());
+    long key = new MaxRandom(args.range()).random();
 
     cache.put(key, new Tag(1L, "tag_1", "tag description"));
 

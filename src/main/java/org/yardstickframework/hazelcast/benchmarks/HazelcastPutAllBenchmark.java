@@ -5,9 +5,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.yardstickframework.common.Tag;
+import org.yardstickframework.common.random.MaxRandom;
 import org.yardstickframework.hazelcast.AbstractHazelcastBenchmark;
-
-import static org.yardstickframework.common.Utils.nextRandom;
 
 /**
  * @author Szymon Halastra
@@ -23,7 +22,7 @@ public class HazelcastPutAllBenchmark extends AbstractHazelcastBenchmark {
     SortedMap<Long, Tag> tags = new TreeMap<>();
 
     for (int i = 0; i < args.batch(); i++) {
-      long key = nextRandom(args.range());
+      long key = new MaxRandom(args.range()).random();
 
       tags.put(key, new Tag(key, "name_" + key, "description_" + key));
     }

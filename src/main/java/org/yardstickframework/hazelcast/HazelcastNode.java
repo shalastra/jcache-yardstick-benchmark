@@ -56,11 +56,7 @@ public class HazelcastNode implements BenchmarkServer {
         break;
 
       case SERVER:
-      case LITE_MEMBER:
         Config instanceCfg = new XmlConfigBuilder(args.configuration()).build();
-
-        if (nodeType == NodeType.LITE_MEMBER)
-          instanceCfg.setLiteMember(true);
 
         println(cfg, "Starting Hazelcast with configuration: " + instanceCfg);
 
