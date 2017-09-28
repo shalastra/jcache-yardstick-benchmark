@@ -1,8 +1,6 @@
 package org.yardstickframework.infinispan;
 
 import com.beust.jcommander.Parameter;
-import org.infinispan.transaction.LockingMode;
-import org.infinispan.util.concurrent.IsolationLevel;
 import org.yardstickframework.common.NodeType;
 
 /**

@@ -8,7 +8,9 @@ import javax.cache.Cache;
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.*;
 import lombok.extern.slf4j.Slf4j;
-import org.yardstickframework.*;
+import org.yardstickframework.BenchmarkConfiguration;
+import org.yardstickframework.BenchmarkDriverAdapter;
+import org.yardstickframework.BenchmarkUtils;
 import org.yardstickframework.common.NodeType;
 import org.yardstickframework.common.Tag;
 

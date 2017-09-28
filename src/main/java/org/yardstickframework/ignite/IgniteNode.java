@@ -2,7 +2,6 @@ package org.yardstickframework.ignite;
 
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
-import org.apache.ignite.cache.CacheMode;
 import org.apache.ignite.configuration.CacheConfiguration;
 import org.apache.ignite.configuration.IgniteConfiguration;
 import org.yardstickframework.BenchmarkConfiguration;
