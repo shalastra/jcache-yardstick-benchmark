@@ -16,6 +16,10 @@ public class Arguments {
   @Parameter(names = {"-r", "--range"}, description = "Key range")
   private int range = 1_000_000;
 
+  /** */
+  @Parameter(names = {"-bs", "--batchSize"}, description = "Batch size")
+  private int batch = 500;
+
   /**
    * @return nodes number
    */
@@ -37,8 +41,17 @@ public class Arguments {
     return range;
   }
 
+
+  /**
+   * @return Batch size.
+   */
+  public int batch() {
+    return batch;
+  }
+
+
   public String description() {
-    return "-nn=" + nodes + "-nt=" + nodeType.name();
+    return "-nn=" + nodes + "-nt=" + nodeType.name() + "-bs=" + batch();
   }
 
   @Override
@@ -47,6 +60,7 @@ public class Arguments {
     sb.append("nodes=").append(nodes);
     sb.append(", nodeType=").append(nodeType);
     sb.append(", range=").append(range);
+    sb.append(", batchSize=").append(batch);
     sb.append('}');
     return sb.toString();
   }
