@@ -23,7 +23,7 @@ import static org.yardstickframework.BenchmarkUtils.println;
  */
 public abstract class AbstractIgniteBenchmark extends BenchmarkDriverAdapter {
 
-  private String cacheName;
+  private final String cacheName;
 
   protected IgniteArguments args = new IgniteArguments();
 

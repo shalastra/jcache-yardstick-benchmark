@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.yardstickframework.BenchmarkConfiguration;
 import org.yardstickframework.BenchmarkDriverAdapter;
 import org.yardstickframework.BenchmarkUtils;
+import org.yardstickframework.common.AbstractBenchmark;
 import org.yardstickframework.common.NodeType;
 import org.yardstickframework.common.Tag;
 
@@ -18,9 +19,7 @@ import static org.yardstickframework.BenchmarkUtils.jcommander;
 import static org.yardstickframework.BenchmarkUtils.println;
 
 @Slf4j
-public abstract class AbstractHazelcastBenchmark extends BenchmarkDriverAdapter {
-
-  private String cacheName;
+public abstract class AbstractHazelcastBenchmark extends AbstractBenchmark {
 
   protected Cache<Long, Tag> cache;
 
@@ -29,7 +28,7 @@ public abstract class AbstractHazelcastBenchmark extends BenchmarkDriverAdapter 
   private HazelcastNode node;
 
   public AbstractHazelcastBenchmark(String cacheName) {
-    this.cacheName = cacheName;
+    super(cacheName);
   }
 
   @Override
