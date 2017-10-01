@@ -2,16 +2,13 @@ package org.yardstickframework.ignite;
 
 import com.beust.jcommander.Parameter;
 import org.apache.ignite.cache.CacheWriteSynchronizationMode;
+import org.yardstickframework.common.Arguments;
 import org.yardstickframework.common.NodeType;
 
 /**
  * @author Szymon Halastra
  */
-public class IgniteArguments {
-
-  /** */
-  @Parameter(names = {"-nn", "--nodeNumber"}, description = "Node number")
-  private int nodes = 1;
+public class IgniteArguments extends Arguments {
 
   /** */
   @Parameter(names = {"-b", "--backups"}, description = "Backups")
@@ -24,12 +21,6 @@ public class IgniteArguments {
   /** */
   @Parameter(names = {"-sm", "--syncMode"}, description = "Synchronization mode")
   private CacheWriteSynchronizationMode syncMode = CacheWriteSynchronizationMode.PRIMARY_SYNC;
-
-  @Parameter(names = {"-nt", "--nodeType"}, description = "Node type")
-  private NodeType nodeType = NodeType.SERVER;
-
-  @Parameter(names = {"-r", "--range"}, description = "Key range")
-  private int range = 1_000_000;
 
   /** */
   @Parameter(names = {"-bs", "--batchSize"}, description = "Batch size")
@@ -48,13 +39,6 @@ public class IgniteArguments {
   private int keysCnt = 5;
 
   /**
-   * @return Node type.
-   */
-  public NodeType nodeType() {
-    return nodeType;
-  }
-
-  /**
    * @return Synchronization.
    */
   public CacheWriteSynchronizationMode syncMode() {
@@ -66,20 +50,6 @@ public class IgniteArguments {
    */
   public int backups() {
     return backups;
-  }
-
-  /**
-   * @return Nodes.
-   */
-  public int nodes() {
-    return nodes;
-  }
-
-  /**
-   * @return Key range, from {@code 0} to this number.
-   */
-  public int range() {
-    return range;
   }
 
   /**
@@ -120,23 +90,22 @@ public class IgniteArguments {
   /**
    * @return Description.
    */
+  @Override
   public String description() {
-    return "-nn=" + nodes + "-b=" + backups + "-sb=" + syncMode + "-nt=" + nodeType.name() + "-rb=" + backups;
+    return super.description() + "-b=" + backups + "-sb=" + syncMode + "-nt=" + "-rb=" + backups;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public String toString() {
-    return getClass().getSimpleName() + " [" +
-            "nodes=" + nodes +
-            ", backups=" + backups +
-            ", hzConfig='" + cfg + '\'' +
-            ", hzClientCfg='" + cfg + '\'' +
-            ", backups=" + backups +
-            ", nodeType=" + nodeType.name() +
-            ", range=" + range +
-            ']';
+    final StringBuilder sb = new StringBuilder("IgniteArguments{");
+    sb.append("backups=").append(backups);
+    sb.append(", cfg='").append(cfg).append('\'');
+    sb.append(", syncMode=").append(syncMode);
+    sb.append(", batch=").append(batch);
+    sb.append(", restartDelay=").append(restartDelay);
+    sb.append(", restartSleep=").append(restartSleep);
+    sb.append(", keysCnt=").append(keysCnt);
+    sb.append('}');
+    return sb.toString();
   }
 }
