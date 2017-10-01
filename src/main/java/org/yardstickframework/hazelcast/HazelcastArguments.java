@@ -1,14 +1,13 @@
 package org.yardstickframework.hazelcast;
 
 import com.beust.jcommander.Parameter;
+import org.yardstickframework.common.Arguments;
 import org.yardstickframework.common.NodeType;
 
 /**
  * @author Szymon Halastra
  */
-public class HazelcastArguments {
-  @Parameter(names = {"-nn", "--nodeNumber"}, description = "Node number")
-  private int nodes = 1;
+public class HazelcastArguments extends Arguments {
 
   @Parameter(names = {"-b", "--backups"}, description = "Backups")
   private int backups;
@@ -21,12 +20,6 @@ public class HazelcastArguments {
 
   @Parameter(names = {"-sb", "--syncBackups"}, description = "Synchronous backups")
   private boolean syncBackups;
-
-  @Parameter(names = {"-nt", "--nodeType"}, description = "Node type")
-  private NodeType nodeType = NodeType.SERVER;
-
-  @Parameter(names = {"-r", "--range"}, description = "Key range")
-  private int range = 1_000_000;
 
   @Parameter(names = {"-rb", "--readBackups"}, description = "Read backups")
   private boolean readBackups = false;
@@ -51,13 +44,6 @@ public class HazelcastArguments {
   }
 
   /**
-   * @return Node type.
-   */
-  public NodeType nodeType() {
-    return nodeType;
-  }
-
-  /**
    * @return Backups.
    */
   public int backups() {
@@ -69,20 +55,6 @@ public class HazelcastArguments {
    */
   public boolean readBackups() {
     return readBackups;
-  }
-
-  /**
-   * @return Nodes.
-   */
-  public int nodes() {
-    return nodes;
-  }
-
-  /**
-   * @return Key range, from {@code 0} to this number.
-   */
-  public int range() {
-    return range;
   }
 
   /**
@@ -131,22 +103,22 @@ public class HazelcastArguments {
    * @return Description.
    */
   public String description() {
-    return "-nn=" + nodes + "-b=" + backups + "-sb=" + syncBackups + "-nt=" + nodeType.name() + "-rb=" + readBackups;
+    return super.description() + "-b=" + backups + "-sb=" + syncBackups + "-rb=" + readBackups;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public String toString() {
-    return getClass().getSimpleName() + " [" +
-            "nodes=" + nodes +
-            ", backups=" + backups +
-            ", hzConfig='" + hzCfg + '\'' +
-            ", hzClientCfg='" + hzClientCfg + '\'' +
-            ", syncBackups=" + syncBackups +
-            ", nodeType=" + nodeType.name() +
-            ", range=" + range +
-            ']';
+    final StringBuilder sb = new StringBuilder("HazelcastArguments{");
+    sb.append("backups=").append(backups);
+    sb.append(", hzCfg='").append(hzCfg).append('\'');
+    sb.append(", hzClientCfg='").append(hzClientCfg).append('\'');
+    sb.append(", syncBackups=").append(syncBackups);
+    sb.append(", readBackups=").append(readBackups);
+    sb.append(", batch=").append(batch);
+    sb.append(", restartDelay=").append(restartDelay);
+    sb.append(", restartSleep=").append(restartSleep);
+    sb.append(", keysCnt=").append(keysCnt);
+    sb.append('}');
+    return sb.toString();
   }
 }
