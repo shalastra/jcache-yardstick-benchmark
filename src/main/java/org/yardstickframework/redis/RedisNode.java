@@ -7,6 +7,7 @@ import org.yardstickframework.BenchmarkServer;
  * @author Szymon Halastra
  */
 public class RedisNode implements BenchmarkServer {
+
   @Override
   public void start(BenchmarkConfiguration cfg) throws Exception {
 
